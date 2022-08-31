@@ -1,0 +1,24 @@
+<%- include('../partials/head')%> 
+<link rel="stylesheet" href="../../public/styles.css">
+    <title>Products</title>
+  </head>
+  <body >
+    <section class="w-75 p-3 ">
+    <h1>All Products</h1>
+    <ul class="list-unstyled">
+      <% for (let product of products){ %>
+      <li class="mb-2 w-25 list"><div class="list-group">
+          <a id="links" class="list-group-item list-group-item-action link-primary" aria-current="true" href="/products/<%=product._id%>"><%= product.name %></a>
+      </div></li>
+      <%}%>
+    </ul>
+    <a class="btn btn-primary" href="/products/new">Add New Product</a>
+  </body></section>
+</html>
+<!-- 
+
+<div class="list-group">
+  <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+    The current button
+  </button>
+</div> -->

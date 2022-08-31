@@ -1,0 +1,49 @@
+<%- include('../partials/head') %> 
+    <title>Create new product</title>
+  </head>
+  <body>
+    <section class="container w-50 p-3">
+      <h1>Add a New Product</h1>
+      <form action="/products" method="POST" class="col-md-auto needs-validation" novalidate>
+        <label for="name">Name of Product:</label>
+        <input
+          class="form-control"
+          type="text"
+          name="name"
+          placeholder="Name of Product"
+          id="name"
+          required
+        />
+        <br />
+        <label for="price">Price of Product($):</label>
+        <input
+          class="form-control"
+          type="number"
+          name="price"
+          placeholder="Price of Product"
+          id="price"
+          required
+        />
+        <br />
+        <label for="category">Category of Product:</label>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          name="category"
+          id="category"
+      
+          required
+        >
+          <option selected>Choose a Category</option>
+          <option value="Fruit">Fruit</option>
+          <option value="Vegetable">Vegetable</option>
+          <option value="Dairy">Dairy</option>
+          <option value="Cereal">Cereal</option>
+        </select>
+        <br />
+        <button class="btn btn-success" type="submit">Submit</button>
+      </form>
+      <br />
+      <a class="btn btn-primary" href="/products">Back to Homepage</a>
+    </section>
+   <%- include('../partials/footer') %> 
