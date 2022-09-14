@@ -1,0 +1,32 @@
+div.list {
+  box-sizing: border-box;
+  background-color: #fff;
+  width: 75%;
+  height: 2em;
+  border-radius: 8px;
+  border: 1px solid #0d6efd;
+  transition: all linear 0.3s;
+}
+div.list:hover {
+  background-color: #0d6efd;
+  border: 1px solid #fff;
+  transform: translateX(8px);
+}
+a.links {
+  color: #0d6efd;
+  padding-left: 16px;
+  padding-top: 3px;
+  height: 100%;
+  transition: all linear 0.3s;
+}
+a.links:hover {
+  color: #fff;
+  transform: translateX(8px);
+}
+
+div.alert {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}

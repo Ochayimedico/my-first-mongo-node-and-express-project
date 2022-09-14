@@ -2,48 +2,54 @@
     <title>Create new product</title>
   </head>
   <body>
+     
     <section class="container w-50 p-3">
+      
       <h1>Add a New Product</h1>
       <form action="/products" method="POST" class="col-md-auto needs-validation" novalidate>
         <label for="name">Name of Product:</label>
-        <input
-          class="form-control"
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+          <input type="text"
+          class="form-control" 
+          name="name"
+          id="name"
           type="text"
           name="name"
           placeholder="Name of Product"
-          id="name"
           required
-        />
-        <br />
-        <label for="price">Price of Product($):</label>
-        <input
-          class="form-control"
-          type="number"
-          name="price"
-          placeholder="Price of Product"
-          id="price"
-          required
-        />
-        <br />
+          required aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+         <label for="price">Price of Product($):</label>
+        <div class="input-group mb-3">  
+          <span class="input-group-text">$</span>
+          <input type="number" 
+          id="price" 
+          name="price" 
+          class="form-control" 
+          aria-label="Amount (to the nearest dollar)"        placeholder="Price of Product"
+          required>
+          <span class="input-group-text">.00</span>
+        </div>
         <label for="category">Category of Product:</label>
+        <div class="input-group mb-3">
         <select
           class="form-select"
           aria-label="Default select example"
-          name="category"
           id="category"
-      
+          name="category"
           required
-        >
-          <option selected>Choose a Category</option>
-          <option value="Fruit">Fruit</option>
-          <option value="Vegetable">Vegetable</option>
-          <option value="Dairy">Dairy</option>
-          <option value="Cereal">Cereal</option>
+        > 
+        <option selected> Select a Category</option>
+        <% for (let category of categories){ %>      
+          <option value="<%= category %>"><%= category %> </option>
+          <% } %>
         </select>
-        <br />
+        </div>
         <button class="btn btn-success" type="submit">Submit</button>
       </form>
-      <br />
+      <br>
       <a class="btn btn-primary" href="/products">Back to Homepage</a>
     </section>
    <%- include('../partials/footer') %> 
