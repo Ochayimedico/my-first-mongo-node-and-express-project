@@ -11,42 +11,38 @@
         novalidate
       >
         <label for="name">Name of Product:</label>
-        <input
-          class="form-control"
-          type="text"
-          aria-label="default input example"
-          type="text"
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+          <input type="text"
+          class="form-control" 
           name="name"
           id="name"
           value="<%=product.name %>"
-          required
-        />
-        <!-- <br /> -->
-        <label for="price">Price of Product($):</label>
-        <input
-          class="form-control"
-          type="number"
-          name="price"
-          id="price"
-          value="<%= product.price %>"
-          required
-        />
-        <br />
+          required aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+         <label for="price">Price of Product($):</label>
+        <div class="input-group mb-3">  
+          <span class="input-group-text">$</span>
+          <input type="number" id="price" name="price" class="form-control" aria-label="Amount (to the nearest dollar)" value="<%= product.price %>" required>
+          <span class="input-group-text">.00</span>
+        </div>
         <label for="category">Category of Product:</label>
-        <select
+        <div class="input-group mb-3">
+          
+          <label class="input-group-text" for="category">Category</label>
+          <select
           class="form-select"
           aria-label="Default select example"
           name="category"
           id="category"
           required
-        >
-          <option selected>Choose a Category</option>
-          <option value="Fruit">Fruit</option>
-          <option value="Vegetable">Vegetable</option>
-          <option value="Dairy">Dairy</option>
-          <option value="Cereal">Cereal</option>
+        >      
+        <% for (let category of categories){ %>
+          <option value="<%=category%>" <%= product.category === category ? 'selected' : '' %>><%= category %> </option>
+          <% } %>
         </select>
-        <br />
+        </div>
         <button class="btn btn-success" type="submit">Submit</button>
       </form>
       <br />

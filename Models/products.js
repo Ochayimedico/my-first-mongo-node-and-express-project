@@ -2,19 +2,24 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
-  name: { type: String, minLength: 3, required: true },
+  name: {
+    type: String,
+    minLength: [3, "Name of product can not be less than 3 characters"],
+    required: true,
+    trim: true,
+    capitalize: true,
+  },
   price: {
     type: Number,
     required: true,
-    min: [1, "Price must not be less than $1"],
-    max: [5, "Price must not be more than $5"],
+    min: [1, "Price can not be less than $1"],
+    max: [10, "Price can not be more than $10"],
   },
-
   category: {
-    // required: true,
+    required: true,
     type: String,
-    enum: ["vegetable", "fruit", "dairy", "cereal"],
-    lowercase: true,
+    enum: ["Vegetable", "Fruit", "Dairy", "Cereal"],
+    capitalize: true,
   },
 });
 
